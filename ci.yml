@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Change this to your desired Node.js version
+
+      - name: Install Dependencies
+        run: npm install  # Replace with the command to install your dependencies
+
+      - name: Run Tests
+        run: npm test  # Replace with the command to run your tests
